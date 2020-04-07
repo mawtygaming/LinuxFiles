@@ -1,0 +1,1 @@
+mail -s "VPMSRufino VPN IP Address" wlbesa@sysnetph.com -aFrom:Maw\<do-not-reply@sysnetph.com\> <<< ifconfig

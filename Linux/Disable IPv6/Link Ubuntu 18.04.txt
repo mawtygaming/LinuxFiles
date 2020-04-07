@@ -1,0 +1,3 @@
+Disbale IPv6:
+Link:
+https://support.purevpn.com/how-to-disable-ipv6-linuxubuntu

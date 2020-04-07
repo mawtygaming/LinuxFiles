@@ -1,0 +1,11 @@
+Link:
+https://www.configserverfirewall.com/ubuntu-linux/enable-mysql-remote-access-ubuntu/
+
+STEP 1: vim /etc/mysql/mysql.conf.d/mysqld.cnf
+STEP 2: look for bind-address = 127.0.0.1 ang change to 0.0.0.0
+
+CentOS:
+Step 1:
+https://bgasparotto.com/enable-mysql-remote-access
+Step 2:
+https://www.cyberciti.biz/tips/how-do-i-enable-remote-access-to-mysql-database-server.html

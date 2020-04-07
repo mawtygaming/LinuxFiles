@@ -1,0 +1,13 @@
+#! /bin/bash
+
+TODAY=$(date +"%B-%d-%Y")
+LOGPATH=/home/vpms-rufino/temptest/templogs
+TIME=$(date +"%A  %B-%d-%Y %r")
+
+echo "[$TIME] Collecting Temperature..." >> $LOGPATH
+echo "[$TIME]" >> $LOGPATH
+sensors >> $LOGPATH
+echo "[$TIME] Collecting Temperature Completed." >> $LOGPATH
+
+# Use every hour
+# end of scriptcd 

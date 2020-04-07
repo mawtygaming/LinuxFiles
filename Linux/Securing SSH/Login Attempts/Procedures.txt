@@ -1,0 +1,17 @@
+STEP 1: cd /etc/ssh
+STEP 2: nano sshd_config
+STEP 3: 
+	Change port "Port xxx"
+	PermitRootLogin no
+	MaxAuthTries 3
+	MaxSessions 2
+	ChallengeResponseAuthentication yes
+	UsePAM yes
+STEP 4: systemctl restart ssh.service
+STEP 5: systemctl status ssh.service
+STEP 6: sshd -T | grep -E "challenge|pam"
+	Output:
+		usepam yes
+		challengeresponseauthentication yes
+STEP 7: pam_tally2 --user=(username)
+STEP 8: pam_tally2 --user=(username) --reset

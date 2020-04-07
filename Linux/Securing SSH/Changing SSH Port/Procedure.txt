@@ -1,0 +1,7 @@
+STEP 1: Check which port ssh listens 
+	netstat -tulnp | grep ssh (must be root)
+STEP 2: sudo nano /etc/ssh/sshd_config
+STEP 3: change #Port 22 to Port xxxxx
+STEP 4: systemctl restart sshd
+STEP 1: Check which port ssh listens now since you've changed it.
+	netstat -tulnp | grep ssh (must be root)	

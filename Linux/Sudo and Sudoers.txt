@@ -1,0 +1,1 @@
+https://www.hostinger.ph/tutorials/sudo-and-the-sudoers-file/

@@ -1,0 +1,5 @@
+Reference:
+https://help.ubuntu.com/community/FilePermissions
+
+Basic Information:
+https://www.linux.com/tutorials/how-manage-file-and-folder-permissions-linux/

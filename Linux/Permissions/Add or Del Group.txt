@@ -1,0 +1,5 @@
+Adding Group:
+https://linuxize.com/post/how-to-create-groups-in-linux/
+
+Deleting Group:
+https://www.techonthenet.com/linux/sysadmin/ubuntu/remove_group_16_04.php

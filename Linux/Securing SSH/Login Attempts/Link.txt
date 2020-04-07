@@ -1,0 +1,5 @@
+Setting PAM and CHALLENGERESPONSE:
+https://linux-audit.com/locking-users-after-failed-login-attempts-with-pam_tally2/
+
+Checking User details and resetting:
+https://www.tecmint.com/use-pam_tally2-to-lock-and-unlock-ssh-failed-login-attempts/

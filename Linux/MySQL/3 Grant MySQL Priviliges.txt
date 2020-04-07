@@ -1,0 +1,34 @@
+Link:
+GRANT:
+https://linuxize.com/post/how-to-create-mysql-user-accounts-and-grant-privileges/
+
+SHOW:
+https://www.cyberciti.biz/faq/how-to-delete-remove-user-account-in-mysql-mariadb/
+
+
+Show:
+Show All users and host:
+- SELECT User, Host FROM mysql.user;
+
+Show Grant Privileges per user:
+- SHOW GRANTS FOR 'userName'@'host';
+	userName = account name
+	host = location
+
+
+Grant:
+Granting MySQL account accesibility:
+
+
+
+Granting all privileges to a specific database:
+- GRANT ALL PRIVILEGES ON databaseName.tableName TO 'user'@'location';
+	databaseName = database name
+	tableName = table name, eg. report_macs or * (all)
+	user = username
+	location
+
+Granting all privileges on all database:
+- GRANT ALL PRIVILEGES ON *.* TO 'user'@'location';
+	user = username
+	location = place, eg. localhost or % (any host);

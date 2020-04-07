@@ -1,0 +1,58 @@
+#! /bin/bash
+
+DATE=$(date +"%A  %B-%d-%Y %r") 
+LOGPATH=/home/vpms-rufino/templogs/templog.log
+
+
+echo ============================ >> ${LOGPATH}
+echo [$DATE] >> ${LOGPATH}
+sleep 1s
+sensors >> ${LOGPATH}
+sleep 1s
+echo ============================ >> ${LOGPATH}
+
+==================================================================================================================
+
+# temp.sh /home/vpms-rufino/TempJob
+1. Create the First bash file to Add what date today. Set the cron to create a log file on 00:05:00
+
+#! /bin/bash
+
+DATE=$(date +"%A  %B-%d-%Y %r")
+TODAY=$(date +"%m-%d-%Y")
+TODAY2=$(date +"%B-%d-%Y")
+LOGPATH=/home/vpms-rufino/templogs
+
+rm $LOGPATH/templogs_$TODAY.log
+echo $TODAY
+echo $DATE
+touch $LOGPATH/templogs_$TODAY.log
+sleep 1s
+echo "[$DATE] Creating the log file for $TODAY2" >> $LOGPATH/templogs_$TODAY.log
+echo "[$DATE] Collecting Temperature..." >> $LOGPATH/templogs_$TODAY.log
+echo "[$DATE]" >> $LOGPATH/templogs_$TODAY.log
+sensors >> ${LOGPATH}/templogs_$TODAY.log
+echo "[$DATE] Collecting Temperature Complete." >> $LOGPATH/templogs_$TODAY.log
+
+
+#temp2.sh
+2. Create the Second bash file to add temp. Set cron to collect on reboot every 1 hour of the day.
+
+
+#! /bin/bash
+
+DATE=$(date +"%A  %B-%d-%Y %r")
+TODAY=$(date +"%m-%d-%Y")
+LOGPATH=/home/vpms-rufino/templogs
+
+if [ ! -f `$LOGPATH/templogs_$TODAY.log`]; then
+        /home/vpms-rufino/TempJob/temp.sh
+else
+        echo "[$DATE] Collecting Temperature..." >> $LOGPATH/templogs_$TODAY.log
+        echo "[$DATE]" >> $LOGPATH/templogs_$TODAY.log
+        sensors >> ${LOGPATH}/templogs_$TODAY.log
+        echo "[$DATE] Collecting Temperature Complete." >> $LOGPATH/templogs_$TODAY.log
+fi
+
+
+	

@@ -1,0 +1,9 @@
+STEP 1:
+Create a client in /etc/freeradius/3.0/client.conf
+APPEND:
+	client [AP IP address]{
+		secret = [secret]
+		shortname = [AP name]
+		proto = [protocol (tcp/udp/*)]
+		
+STEP 2:

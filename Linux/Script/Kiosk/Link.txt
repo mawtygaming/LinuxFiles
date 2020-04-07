@@ -1,0 +1,5 @@
+Reference:
+https://obrienlabs.net/setup-kiosk-ubuntu-chromium/
+
+Disable Error Reporting:
+https://www.linuxbabe.com/ubuntu/disable-apport-error-reporting-ubuntu-16-04-lts

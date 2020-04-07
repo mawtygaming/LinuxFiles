@@ -1,0 +1,4 @@
+Step 1: iptables -A INPUT -p tcp --dport ssh -j DROP
+
+Link:
+https://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/

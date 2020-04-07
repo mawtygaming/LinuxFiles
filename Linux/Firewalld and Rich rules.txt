@@ -1,0 +1,6 @@
+Links:
+https://computingforgeeks.com/install-and-use-firewalld-on-ubuntu-18-04-ubuntu-16-04/
+
+
+Firewalld explaination:
+https://opensource.com/article/18/9/linux-iptables-firewalld

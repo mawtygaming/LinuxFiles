@@ -1,0 +1,2 @@
+Link:
+https://obrienlabs.net/setup-kiosk-ubuntu-chromium/

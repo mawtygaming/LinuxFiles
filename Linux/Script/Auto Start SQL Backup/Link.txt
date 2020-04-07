@@ -1,0 +1,8 @@
+Reference:
+https://tecadmin.net/bash-script-mysql-database-backup/
+
+IF Else Bash Script:
+https://tecadmin.net/tutorial/bash-scripting/bash-if-else-statement/
+
+Ignore a table in Backup:
+https://tecadmin.net/tutorial/mysql/skip-tables-in-mysqldump/

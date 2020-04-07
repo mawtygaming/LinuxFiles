@@ -1,0 +1,3 @@
+https://www.osradar.com/how-to-install-wireshark-on-ubuntu-16-04-18-04/
+
+sudo tcpdump -i any -w [name].cap

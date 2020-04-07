@@ -1,0 +1,20 @@
+# This is to setup your Linux machine using SSMTP
+
+STEP 1: Install SSMTP
+	sudo apt-get install ssmtp mailutils
+STEP 2: Edit configuration
+	/etc/ssmtp/ssmtp.conf
+STEP 3: Configuration
+	root=youremail@gmail.com
+	mailhub=smtp.gmail.com:587
+	AuthUser=youremail@gmail.com
+	AuthPass=yOuRfUnKyP4ssWorD
+	UseTLS=YES
+	UseSTARTTLS=YES
+	AuthMethod=LOGIN
+	
+Reference Link:
+https://ariandy1.wordpress.com/2014/04/08/linux-send-email-when-ip-address-changes/
+
+Ways to email via command line:
+https://www.binarytides.com/linux-mailx-command/

@@ -1,0 +1,23 @@
+#! /bin/bash
+
+# get the date yesterday
+DATE=$(date -d "-1 days" +"%m-%d-%Y")
+LOGDIR=/home/vpms-rufino/temptest
+LOGPATH=/home/vpms-rufino/temptest/templogs
+TIME=$(date +"%A  %B-%d-%Y %r")
+TODAY=$(date +"%B-%d-%Y")
+BACKUP=60
+# COMMAND=/home/pi/tempmon.sh
+
+gzip -c $LOGPATH > $LOGDIR/templogs_$DATE.gz
+sleep 5s
+echo "[$TIME] Creating the log file for $TODAY" > $LOGPATH
+echo "[$TIME] Collecting Temperature..." >> $LOGPATH
+echo "[$TIME]" >> $LOGPATH
+sensors >> $LOGPATH
+echo "[$TIME] Collecting Temperature Completed." >> $LOGPATH
+
+find $LOGDIR -mtime $BACKUP -exec rm -R {} \;
+
+# Use on 0:01
+# end of script

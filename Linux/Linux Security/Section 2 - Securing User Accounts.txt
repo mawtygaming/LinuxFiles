@@ -1,0 +1,40 @@
+Thing to do:
+1. Setting up sudo for full administrative users and users with certain privileges
+	- Allowing a user to do everything
+	- Logging into the root command prompt:
+		* Adding users to predefined admin group
+		* Creating an entry in the sudo policy file
+		
+		visudo 
+		% - working with a group
+		ALL=(ALL)	ALL 			- any command on any user on any machine
+		ALL=(ALL)	NOPASSWD: ALL   - able to perform any task without entering a password (not recommended even for home use)
+		
+		Adding an existing user to a group:
+			sudo usermod -a -G [groupname] [username]
+			-a means prevent removing the user  	
+			Command: sudo usermod -a -G [groupname] [username]
+		Adding a new user to a group:
+			Command: sudo useradd -G [groupname] [username]
+2. Advanced tips and tricks to use sudo
+	- Adding users to wheel group or sudo group is great if:
+		* You're working with a single machine
+		* You're deploying sudo policy across network that uses one admin group
+		
+3. Locking down users home directories
+4. Enforcing strong password critetia
+		Adding a user 
+			Command: sudo adduser [username]
+		Install a password quality checker
+			Command: sudo apt-get install libpam-pwquality
+		Setting:
+			Directory: cd /etc/pam.d
+			Command: sudo nano common-password #must have root privileges
+				Parameters:
+					minlen=12  # minimum length, 12 characters
+					ucredit=-1 # password must have atleast 1 uppercase letter
+5. Setting and enforcing password and account expiration
+		
+6. Preventing brute-force password attacks
+
+7. Locking user account 

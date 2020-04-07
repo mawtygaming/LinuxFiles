@@ -1,0 +1,109 @@
+Things to do:
+==========
+IP Tables:
+	Tables
+		* Filter - default or main table packet filtering - whenever no table assigned automaticc on filter table
+		* NAT - role network address translation
+		* Mangle - Modify IP headers
+		* Raw - Connection Tracking
+		* Security - SELinux Taging
+	Chains
+		* Pre Routing - incoming packet, before taking any routing decision
+		* Input - when packet enters network stacck
+		* Forward - Packet routed through the system
+		* Output - packet originated from your system and going out
+		* Post Routing -after routing decision and packet going on wire
+		
+			Append
+			Delete
+			Insert
+			Replace
+			Zero Counters
+			List
+			Policy
+			Rename
+			Flush
+			New User defined chain
+			Delete chain
+	Rules
+		Matching Component:
+		* Protocol
+		* IP Address
+		* Port Address
+		* Interfaces
+		* Headers
+		Target Component:
+			Terminating Target
+				- Accept
+				- Drop
+				- Queue
+				- Reject
+				- Return
+				- User-Defined
+			Non-Terminating Target
+				- Continue the chain
+				
+	3Ps:
+		* Packets
+		* Protocol
+		* Ports
+				
+	COMMANDS:
+		sudo iptables -L -n -v
+			-L = list
+			-n = numeric format
+			-v = verbose
+		sudo iptables -t mangle -L -n -v
+		
+		iptables -t[table] -OPTIONS[Chain] [Matching Component] [Action componen]
+			
+			[Matching component]
+			Generic:
+				p - protocol
+				s - source IP
+				d - destination IP
+				i - IN interface
+				o - OUT interface
+			Implicit:
+				TCP
+					sport
+					dport
+					tcp-flags
+			Explicit:
+				-m = match extensions
+					conntrack
+					dscp
+					ecn
+					iprange
+					
+			[Action component]
+			-j = jump
+				Accept - accept packet and end traversing
+				Drop - drop the packet and end traversing
+				Reject - drop the packet and response to the source
+				Return - to stop packet traverse in the sub chain and return to the superior chain with no effect
+		
+		Block a website:
+			sudo iptables -A INPUT -s [ip address/domain name] -j DROP   #this method is only possible on domain with
+																			one servers unlike google or youtube who have multiple servers
+				-A = append
+			sudo iptables -P INPUT DROP
+				-P = policy
+				
+		Delete a table:
+			sudo iptables -D INPUT 1
+				-D = delete
+		
+		
+		
+	PS: If(condition==true){
+			Do this
+		}
+		else{
+			Continue traverse
+		}
+=========	
+UFW:
+
+=========
+FirewareD:

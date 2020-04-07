@@ -1,0 +1,68 @@
+Introducion:
+https://www.youtube.com/watch?v=XRIklZrZtFo
+
+Installing Ubuntu Server:
+https://www.youtube.com/watch?v=2et6T_6bFog
+
+Connecting via SSH:
+https://www.youtube.com/watch?v=tGZUWwJ26A8
+
+Getting Stated with Terminal Commands:
+https://www.youtube.com/watch?v=xaqPdtLgmhw
+
+Browsing the File System:
+https://www.youtube.com/watch?v=ih6bbwyfco0
+
+Managing Files and Directories:
+https://www.youtube.com/watch?v=EtTZwdBHpYs
+
+Editing Files:
+https://www.youtube.com/watch?v=3CmnN0HBt4Y
+
+Managing Packages:
+https://www.youtube.com/watch?v=sDvNj78gU7w
+
+Adding or Removing Users:
+https://www.youtube.com/watch?v=O2Dxxi-wj1g
+
+Managing Groups:
+https://www.youtube.com/watch?v=n1YwZ0Sx75Q
+
+Understanding Permissions:
+https://www.youtube.com/watch?v=yRh9iNDArPU
+
+Upgrading Packages:
+https://www.youtube.com/watch?v=fKb4d1IrSg8
+
+Hosting a Simple Web Page:
+https://www.youtube.com/watch?v=bNNahW0gRZQ
+
+Managing systemd Units:
+https://www.youtube.com/watch?v=Jbalc5Ym8bE
+
+Checking Command History:
+https://www.youtube.com/watch?v=7iz6ItoTKQ8
+
+The File System Hierachy Standard:
+https://www.youtube.com/watch?v=WaEqBP3V1dA
+
+Checking Logs:
+https://www.youtube.com/watch?v=um_J_1PGmeU
+
+Checking Disk Usage:
+https://www.youtube.com/watch?v=gwWRklHGSTc
+
+Checking Resource Utilization:
+https://www.youtube.com/watch?v=MX52cNlBNz8
+
+Adding Additonal Storage:
+https://www.youtube.com/watch?v=Z5lHFihRvgo
+
+Data Streams:
+https://www.youtube.com/watch?v=CyUbXiMKggU
+
+Background and Foreground:
+https://www.youtube.com/watch?v=XQUreJ-ZWRE
+
+Adding Repository and Installing Webmin:
+https://www.youtube.com/watch?v=7enDcpKptAs

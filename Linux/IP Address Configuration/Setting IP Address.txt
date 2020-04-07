@@ -1,0 +1,24 @@
+# This is to configure IP Address on Ubuntu 18.04 +
+STEP 1:Check your available network interfaces.
+	ifconfig -a
+STEP 2: 
+	sudo nano /etc/netplan/50-cloud-init.yaml
+	* Please take note that when editing this file you must never use tab
+	network:
+		ethernets:
+			[network int]:
+				dhcp4: true
+			# This is just an example configuration
+			[network int]:
+				addresses: [122.2.53.36/29]
+				gateway4: 122.2.53.33
+				# Sometimes when configuring static IP address no need to into dhcp4
+				dhcp4: no
+				# Please take note to use your DNS IP Address
+				nameservers:
+					[8.8.8.8, 8.8.4.4]
+STEP 3: Debug your network configuration
+	sudo netplan --debug apply
+
+Reference:
+https://www.ostechnix.com/how-to-configure-ip-address-in-ubuntu-18-04-lts/

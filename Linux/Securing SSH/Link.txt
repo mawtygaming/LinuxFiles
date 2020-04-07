@@ -1,0 +1,6 @@
+Reference:
+https://blog.devolutions.net/2017/4/10-steps-to-secure-open-ssh
+http://acmeextension.com/secur-ssh-server/
+
+Check Sudoers List:
+https://serverfault.com/questions/208347/how-do-i-list-all-users-with-root

@@ -1,0 +1,4 @@
+https://techexpert.tips/freeradius/freeradius-installation-mysql-integration-ubuntu-linux/
+
+setup:
+https://docs.opnsense.org/manual/how-tos/accounting.html

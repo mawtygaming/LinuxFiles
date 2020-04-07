@@ -1,0 +1,164 @@
+How to secure your linux cloud.
+https://upcloud.com/community/tutorials/secure-linux-cloud-server/
+
+First things to install:
+https://www.tecmint.com/things-to-do-after-minimal-rhel-centos-7-installation/#C1
+
+	a. Strong Usernames and Passwords
+			Edit /etc/security/pwquality.conf
+	b. Configure Idle Timeout Interval: https://www.thegeekdiary.com/centos-rhel-how-to-setup-session-idle-timeout-inactivity-timeout-for-ssh-auto-logout/
+			sudo nano /etc/ssh/sshd_config
+				ClientAliveInterval 5m          # 5 minutes
+				ClientAliveCountMax 2           # 2 times
+			service sshd restart
+	c. Disable Empty Passwords
+			sudo nano /etc/ssh/sshd_config
+				PermitEmptyPasswords no
+				service sshd restart
+				
+				awk -F: '($2=="!!") {print}' /etc/shadow - to check all empty password
+				passwd -l [accountname] - to lock an account
+				
+				c2. Check accounts with zero "UID"
+					awk -F: '($3=="0") {print}' /etc/passwd
+				
+	d. Disabling User SSH Login Attempts and Time
+			Edit /etc/pam.d/password-auth and etc/pam.d/system-auth
+				Add these lines:
+					* auth        [success=1 default=ignore]  pam_succeed_if.so user in maw
+					* auth        required      pam_faillock.so preauth silent audit deny=3 even_deny_root unlock_time=60
+					* auth        [default=die] pam_faillock.so authfail audit deny=3 even_deny_root unlock_time=60
+				Add activation:
+					* account     required      pam_faillock.so
+	e. Disable Root Logins
+			sudo nano /etc/ssh/sshd_config
+				#PermitRootLogin no
+				service sshd restart
+	f. Only Use SSH Protocol 2 - set as default
+	g. Use Another Port
+			netstat -tulnp | grep ssh (must be root)
+			sudo nano /etc/ssh/sshd_config
+			change #Port 22 to Port xxxxx
+			systemctl restart sshd
+			netstat -tulnp | grep ssh (must be root)	
+			
+			sudo ss -anpt - show all listening port
+				
+				p - which process
+				t - 
+			Link: https://www.linux.com/tutorials/introduction-ss-command/
+	h. Allow Only Specific Clients
+			sudo iptables -L
+			sudo iptables -I INPUT -p tcp -s "Your IP" --dport "ssh port no." -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+			sudo iptables -A OUTPUT -p tcp --sport "ssh port no." -m conntrack --ctstate ESTABLISHED -j ACCEPT
+			sudo iptables -A INPUT -p tcp --dport ssh -j DROP
+*	i. Enable Two-Factor Authentication: https://www.linux.com/tutorials/securing-ssh-two-factor-authentication-using-google-authenticator/
+*	j. Use Public/Private Keys for Authentication
+	k. File Permission to SSH directory
+		(root)
+			chmod 750 ssh
+				where: (owner/group/others)
+					4 = read
+					2 = write
+					1 = execute
+					0 = no permission
+	l. Password Aging
+			chage -l [username] - list the user status
+			chage -M [number of days] [username] - change the password expiration
+			chage -I [number of days] [username] - change the inactive user status (when the user password expires, the user 
+		will automatically change its password once login(must use the old password first), can still talk to system admin for a password reset.
+		If the account expires the admin must provide a valid justification why he wasn't able to change his password.
+			chage -E [expiration (yyyy-mm-dd)] [username] - change password expiration date
+			chage - W [number of days] [username] - system will send a warning message to change your password
+			
+				Last password change:
+		-M		Password expires:
+		-I		Password inactive:
+		-E		Account expires:
+				Minimum number of days between password change:
+				Maximum number of days between password change:
+		-W		Number of days of warning before password expires:
+	m. Change SSH Port
+			netstat -tulnp | grep ssh (must be root)
+			sudo nano /etc/ssh/sshd_config
+			change #Port 22 to Port xxxxx
+			systemctl restart sshd
+			netstat -tulnp | grep ssh (must be root)
+	n. Controlling Access Control List - adding a specific user access even if the user is not belong to a group 
+		Link: https://www.geeksforgeeks.org/access-control-listsacl-linux/
+		-r (read)
+		-w (write)
+		-x (execute)
+		
+		Adding user
+			adduser [username] - must be root
+		Changing user password
+			password [username] - must be root
+		Adding group
+			groupadd [groupname]
+		Adding a user into a group 
+			usermod -a -G [group name] [username]
+		Removing user to a group
+			deluser [username] [groupname]
+		Change User Login
+			usermod -l [newusername] [username]
+		Lock a user
+			usermod -L [username]
+		Unloock a user
+			usermod -U [username]
+		Usermod Link: https://www.tecmint.com/usermod-command-examples/
+			
+		Checking available permission
+			getfacl [directory/file]
+		Adding a specific user
+			setfacl -m u:[username]:[permission] [directory]
+				setfacl -m u:maw:rwx mawpogi
+			setfacl -d -m u:[username]:[permission] [directory] //default permission sa on user that is the same on directory
+				setfacl -d -m u:maw:rwx mawpogi
+				touch samepermission.txt //maw will have the same permission by default
+	o. Restrict users to use old passwords
+		Edit /etc/pam.d/system-auth
+		Add the following line on auth section
+			auth sufficient pam_unix.so likeauth nullok
+		On password		sufficient		pam_unix.so sha512 shadow nullok try_first_pass use_authtok
+			Add remember=5
+			Will now become, password		sufficient		pam_unix.so sha512 shadow nullok try_first_pass use_authtok remember=5
+		This will set that only last 5 passwords will be remember by the server.
+		
+GENERAL SECURITY:
+	a. Remove FTP, Telnet and Rlogin/RSH Services
+		sudo yum erase xinetd ypserv tftp-server telnet-server rsh-server
+	b. Minimize software to minimize vulnerability
+		sudo yum list installed
+		sudo yum list [packageName]
+		sudo remove [packageName]
+	c. Lockdown cronjobs
+		add username on /etc/cron.deny
+	d. Disable USB Stick to detect: https://linuxtechlab.com/disable-usb-storage-linux/
+		touch /etc/modprobe.d/no-usb
+		Add this line
+			install usb-storage /bin/true
+	e. Turn off IPv6
+	f. Sudo and Sudoers, disable sudo su: https://www.thegeekdiary.com/how-to-disable-sudo-su-for-users-in-sudoers-configuration-file/
+			[%groupname/username]ALL = ALL, !/bin/su, !/usr/sbin/visudo
+			!/bin/su - sudoers cannot use sudo su
+			!/usr/sbin/visudo - sudoers cannot use visudo
+			Sudo and Sudoers: https://serversforhackers.com/c/sudo-and-sudoers-configuration
+							: https://www.maketecheasier.com/edit-sudoers-file-linux/
+OTHERS:
+	a. Routing Tables
+		Destination
+		Gateway - Router IP Address
+		Genmask - Subnet mask
+		Flags 
+			U - Up and runnign
+			G - Gateway
+		Metric - 
+		Ref - 
+		Iface - Networking Interface card
+	b. Monitoring tools
+		cockpit
+			sudo apt install cockpit
+		cacti
+		nagios
+		splunk

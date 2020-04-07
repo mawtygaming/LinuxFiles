@@ -1,0 +1,6 @@
+Step 1: sudo iptables -L
+Step 2: sudo iptables -I INPUT -p tcp -s "Your IP" --dport "ssh port no." -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+Step 3: sudo iptables -A OUTPUT -p tcp --sport "ssh port no." -m conntrack --ctstate ESTABLISHED -j ACCEPT
+
+Link:
+https://www.digitalocean.com/community/tutorials/iptables-essentials-common-firewall-rules-and-commands#service-ssh
