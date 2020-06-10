@@ -1,0 +1,12 @@
+STEP 1: sudo apt install postgresql
+STEP 2: ss -nlt
+	- This is to check the port(5432) postgresql running.
+	- 127.0.0.1:5432
+STEP 3: sudo systemctl disable postgresql
+STEP 4: sudo nano /etc/postgresql/12/main/postgresql.conf
+	- Edit listen_addresses = 'localhost' to listen_addresses = '*'
+STEP 5: sudo systemctl restart postgresql
+STEP 6: ss -nlt
+	- 0.0.0.0:5432
+
+Reference: https://linuxconfig.org/ubuntu-20-04-postgresql-installation
