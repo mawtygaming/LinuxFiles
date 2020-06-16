@@ -25,6 +25,9 @@ git add [file] or . (all)
 git status
 git commit -m "Comment"
 
+git reset --hard HEAD~1
+reference: https://stackoverflow.com/questions/1338728/delete-commits-from-a-branch-in-git
+
 git push -u origin master
 
 git branch
