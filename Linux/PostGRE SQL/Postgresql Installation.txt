@@ -23,3 +23,37 @@ sudo -u postgres psql
 
 createuser --interactive >> on user postgres
 sudo -u postgres createuser --interactive 
+
+
+
+PROCEDURES:
+Logging in into postgres:
+	sudo -u postgres psql
+
+Creating Database: 
+	CREATE DATABASE mydbname;
+		example: CREATE DATABASE maw;
+
+List all databases:
+	\l
+		press Q to quit
+
+Connect to a database:
+	\c mydbname;
+		example: \c maw;
+
+Creating a schema(must be connected into a database):
+	CREATE SCHEMA mydbschema;
+		example: CREATE SCHEMA mawschema;
+
+Creating a table on a schema:
+	CREATE TABLE mydbschema.table (VALUES);
+		example: CREATE TABLE mawschema.mawtable1 (id integer, fname CHAR(30), lname CHAR(30));
+
+List all schema:
+	SELECT * FROM pg_catalog.pg_tables;
+
+List schema which are not from pgcatalog:
+	SELECT * FROM pg_catalog.pg_tables WHERE schemaname != 'information_schema' and schemaname != 'pg_catalog';
+
+https://www.youtube.com/watch?v=jNIdcrQsfYo
