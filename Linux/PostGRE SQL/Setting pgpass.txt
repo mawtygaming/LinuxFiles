@@ -1,0 +1,11 @@
+1. Create a .pgpass file on the home directory
+2. input the following 
+	#hostname:port:database:username:password
+3. Change .pgpass chown 600
+
+
+
+Trust authentication in pg_hba.conf 
+
+cd /opt/PostgreSQL/9.4/data
+nano pg_hba.conf

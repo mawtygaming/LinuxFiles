@@ -30,6 +30,11 @@ PROCEDURES:
 Logging in into postgres:
 	sudo -u postgres psql
 
+Show all users:
+	\du
+	or show more info,
+	\du+
+
 Creating Database: 
 	CREATE DATABASE mydbname;
 		example: CREATE DATABASE maw;
@@ -46,6 +51,17 @@ Creating a schema(must be connected into a database):
 	CREATE SCHEMA mydbschema;
 		example: CREATE SCHEMA mawschema;
 
+Creating table:
+	CREATE TABLE account(user_id serial PRIMARY KEY, username VARCHAR (50) UNIQUE NOT NULL, time INTEGER);
+
+Inserting data on table:
+	INSERT INTO table(column1, column2, …) VALUES (value1, value2, …);
+	example:
+	INSERT INTO account(user_id, username, time) VALUES (1, mawty, 5);
+
+Show all columns;
+	SELECT * FROM information_schema.columns WHERE table_schema = 'your_schema' AND table_name = 'your_table';
+
 Creating a table on a schema:
 	CREATE TABLE mydbschema.table (VALUES);
 		example: CREATE TABLE mawschema.mawtable1 (id integer, fname CHAR(30), lname CHAR(30));
@@ -55,7 +71,20 @@ List all schema:
 	or
 	\dn
 
+List all tables in the current schema:
+	\dt
+
+List all columns inside the table:
+	\d (tableName)
+
 List schema which are not from pgcatalog:
 	SELECT * FROM pg_catalog.pg_tables WHERE schemaname != 'information_schema' and schemaname != 'pg_catalog';
+
+Show data on postgres:
+	SELECT * FROM (schemaName.tableName)
+
+
+
+
 
 https://www.youtube.com/watch?v=jNIdcrQsfYo

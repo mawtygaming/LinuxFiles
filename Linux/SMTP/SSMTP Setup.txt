@@ -12,9 +12,12 @@ STEP 3: Configuration
 	UseTLS=YES
 	UseSTARTTLS=YES
 	AuthMethod=LOGIN
+STEP 4: Test your SSMTP
+	echo "This is message body" | mail -s "This is Subject" wlbesa@sysnetph.com
 	
 Reference Link:
 https://ariandy1.wordpress.com/2014/04/08/linux-send-email-when-ip-address-changes/
+http://www.havetheknowhow.com/Configure-the-server/Install-ssmtp.html
 
 Ways to email via command line:
 https://www.binarytides.com/linux-mailx-command/
