@@ -52,6 +52,8 @@ Creating a table on a schema:
 
 List all schema:
 	SELECT * FROM pg_catalog.pg_tables;
+	or
+	\dn
 
 List schema which are not from pgcatalog:
 	SELECT * FROM pg_catalog.pg_tables WHERE schemaname != 'information_schema' and schemaname != 'pg_catalog';
