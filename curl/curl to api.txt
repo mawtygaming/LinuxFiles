@@ -1,0 +1,14 @@
+curl --location --request POST 'https://appvno-ws.multidemos.com/api/notification/send/pushNotification' \
+--header 'Authorization: Basic YXBwdm5vdXNlcjphcHB2bm9wYXNz' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"title":"27th day: Subscription is about to expire",
+"body":"Your Philippines Mobile Number plan is about to expire on 01/01/2121.Please renew now to continue receiving calls and text message form Philippines.",
+"min" : [
+ {
+ "mobileNumber" : "639662146331"
+ }
+ ],
+"type" : "Notification",
+"action_type" : "NotificationActivity"
+}'
