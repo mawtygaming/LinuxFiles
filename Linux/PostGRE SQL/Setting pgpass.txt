@@ -9,3 +9,5 @@ Trust authentication in pg_hba.conf
 
 cd /opt/PostgreSQL/9.4/data
 nano pg_hba.conf
+
+https://www.youtube.com/watch?v=LuDVkbJ7O1M

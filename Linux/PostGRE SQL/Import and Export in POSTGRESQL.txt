@@ -1,0 +1,8 @@
+https://www.youtube.com/watch?v=DA1Trq51JZs
+
+https://dba.stackexchange.com/questions/207993/pg-restore-into-a-new-database
+
+
+
+Importing:
+sudo -u postgres pg_restore -d databaseName -C -O sqlFile.sql
