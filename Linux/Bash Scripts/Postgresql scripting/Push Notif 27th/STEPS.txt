@@ -1,0 +1,5 @@
+1. push_notif27.sh
+2. query27th.txt
+3. list.txt
+4. updateQuery.py
+5. logs.txt

@@ -1,1 +1,0 @@
-https://www.dbrnd.com/2019/03/postgresql-bash-shell-script-to-execute-psql-command-in-unix-linux/
