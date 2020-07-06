@@ -51,6 +51,9 @@ Creating a schema(must be connected into a database):
 	CREATE SCHEMA mydbschema;
 		example: CREATE SCHEMA mawschema;
 
+Deleting a database(if exist):
+	DROP DATABASE dbanme;
+
 Creating table:
 	CREATE TABLE account(user_id serial PRIMARY KEY, username VARCHAR (50) UNIQUE NOT NULL, time INTEGER);
 
@@ -89,8 +92,5 @@ List schema which are not from pgcatalog:
 
 Show data on postgres:
 	SELECT * FROM (schemaName.tableName)
-
-
-INSERT INTO message_notif(body) VALUES('Your Philippines Mobile Number plan is about to expire on 01/01/2121. Please renew now to continue receiving calls and text message form Philippines.') WHERE id=1
 
 https://www.youtube.com/watch?v=jNIdcrQsfYo

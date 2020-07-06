@@ -2,7 +2,11 @@ https://www.youtube.com/watch?v=DA1Trq51JZs
 
 https://dba.stackexchange.com/questions/207993/pg-restore-into-a-new-database
 
-
+https://stackoverflow.com/questions/40632228/input-file-appears-to-be-a-text-format-dump-please-use-psql
 
 Importing:
 sudo -u postgres pg_restore -d databaseName -C -O sqlFile.sql
+
+pg_dump dbname > outfile
+
+
