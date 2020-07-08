@@ -94,3 +94,4 @@ Show data on postgres:
 	SELECT * FROM (schemaName.tableName)
 
 https://www.youtube.com/watch?v=jNIdcrQsfYo
+

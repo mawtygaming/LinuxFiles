@@ -1,0 +1,7 @@
+[Jul 06 2020 09:35:52] Sending notifications to mobile numbers with 27th day counter.
+[Jul 06 2020 09:35:52] Mobile Number:  639952076238
+[Jul 06 2020 09:35:52] Result: '{"multicast_id":430979458058745194,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1593999352943839%44f8830844f88308"}]}'
+[Jul 06 2020 09:35:55] Table notif_counter with  mobile 639952076238 was successfully updated.
+[Jul 06 2020 09:35:52] Mobile Number:  639432570579
+[Jul 06 2020 09:35:52] Result: '{"multicast_id":3430143658810431653,"success":1,"failure":1,"canonical_ids":0,"results":[{"error":"NotRegistered"},{"message_id":"0:1593999355549306%44f8830844f88308"}]}'
+[Jul 06 2020 09:35:57] Table notif_counter with  mobile 639432570579 was successfully updated.

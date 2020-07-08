@@ -1,34 +1,32 @@
 #!/usr/bin/env bash
 
-# Query of 27th counter location
-queryLoc="/var/lib/postgresql/PushNotification/Notify27days/query27th.txt"
+# Query of 91st counter location
+queryLoc="/var/lib/postgresql/PushNotification/Deactivated91days/query91st.txt"
 # txt file location
-fileLoc="/var/lib/postgresql/PushNotification/Notify27days/list27days.txt"
+fileLoc="/var/lib/postgresql/PushNotification/Deactivated91days/list91days.txt"
 # URL to POST request
 refLink='https://appvno-ws.multidemos.com/api/notification/send/pushNotification'
 # Title of Push Notification
-title='27th day: Subscription is about to expire'
+title='91st day: Deactivated Philippine Number'
 # curl type
 type='Notification'
 # curl action_type
 actionType='NotificationActivity'
 # Get the current date and time
 now=$(date '+%b %d %Y %H:%M:%S')
-# Set 3 days before end of subscription
-expireDate=$(date --date="3 days" +"%Y-%b-%d")
-body="Your Philippines Mobile Number plan is about to expire on $expireDate. Please renew now to continue receiving calls and text message form Philippines."
+body="Your Philippine Mobile Number subscription is now deactivated. A new mobile number will be assigned to you after subscribing to a new plan."
 # Database name
 database="latest_appvno"
 # Logs location
-logsLoc="/var/lib/postgresql/PushNotification/Notify27days/logs.tmp"
+logsLoc="/var/lib/postgresql/PushNotification/Deactivated91days/logs.tmp"
 # current number
-currentNumLoc="/var/lib/postgresql/PushNotification/Notify27days/currentNum.txt"
+currentNumLoc="/var/lib/postgresql/PushNotification/Deactivated91days/currentNum.txt"
 
 # This is to query from appvno database writing to a file
-psql -d $database -t -c "SELECT id FROM svn WHERE expiry_date::DATE - current_date = 3" > $queryLoc
+psql -d $database -t -c "SELECT id FROM svn WHERE current_date - expiry_date::DATE =61" > $queryLoc
 # Deleting the last line from list.txt
 sed '$d' $queryLoc > $fileLoc
-echo "[$now] Sending notifications to mobile numbers with 27th day counter." > $logsLoc
+echo "[$now] Sending notifications to mobile numbers, 91 days counter deactivation notice." > $logsLoc
 
 # This is to read the textfile list.txt line per line
 while IFS='' read -r list;
@@ -53,6 +51,7 @@ do
         echo $list > $currentNumLoc
 # Wait for 2 seconds
         sleep 2s
-# Run updateQuery.py using python
-        python3 updateQuery.py
+		echo "[$now] Successfully sent svn number deactivation notice to $list" >> $logsLoc
+# Run updateQuery.py using python to update svn_id into NULL
+        python3 updateQuery91.py
 done < "$fileLoc"
