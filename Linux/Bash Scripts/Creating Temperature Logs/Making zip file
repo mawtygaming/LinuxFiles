@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # get the date yesterday
 DATE=$(date -d "-1 days" +"%m-%d-%Y")
@@ -21,3 +21,5 @@ find $LOGDIR -mtime $BACKUP -exec rm -R {} \;
 
 # Use on 0:01
 # end of script
+
+https://linuxize.com/post/gzip-command-in-linux/
