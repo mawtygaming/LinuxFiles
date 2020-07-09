@@ -21,7 +21,7 @@ database="latest_appvno"
 logsLoc="/var/lib/postgresql/PushNotification/Cooling86days/logs.tmp"
 
 # This is to query from appvno database writing to a file
-psql -d $database -t -c "SELECT id FROM svn WHERE current_date - date_subscribed::DATE = 86;" > $queryLoc
+psql -d $database -t -c "SELECT id FROM svn WHERE current_date - expiry_date::DATE = 56;" > $queryLoc
 # Deleting the last line from list.txt
 sed '$d' $queryLoc > $fileLoc
 echo "[$now] Sending notifications to mobile numbers with 86th day counter." > $logsLoc
