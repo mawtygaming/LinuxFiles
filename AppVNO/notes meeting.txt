@@ -6,6 +6,7 @@ Notes For Meeting:
 
 SELECT * FROM svn WHERE status = 'ACTIVE';
 UPDATE svn SET status='ACTIVE' WHERE id = '639952076238';
+UPDATE users SET svn_id = '639952076238' WHERE mobile_number = '639952076238';
 
 1. Push Notification 27 days, notify user subscription will expire.
 	- Expiry Date Set on July 12
@@ -30,7 +31,9 @@ UPDATE svn SET status='ACTIVE' WHERE id = '639952076238';
 5. Push Notification Deactivation notice
 	- Expiry Date Set to May 9
 	Query:
-	- UPDATE svn SET expiry_date = NOW() - INTERVAL '61 DAY' WHERE id = '639952076238';	
+	- UPDATE svn SET expiry_date = NOW() - INTERVAL '61 DAY' WHERE id = '639952076238';
+	To check:
+	- SELECT * FROM users WHERE mobile_number = '639952076238';	
 
 
 
