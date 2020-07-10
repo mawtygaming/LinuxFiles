@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 TODAY=$(date +"%Y-%m-%d")
 
