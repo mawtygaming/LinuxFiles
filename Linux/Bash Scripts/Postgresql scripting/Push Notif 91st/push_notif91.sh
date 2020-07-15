@@ -16,7 +16,7 @@ actionType='NotificationActivity'
 now=$(date '+%b %d %Y %H:%M:%S')
 body="Your Philippine Mobile Number subscription is now deactivated. A new mobile number will be assigned to you after subscribing to a new plan."
 # Database name
-database="latest_appvno"
+database="appvno_latest"
 # Logs location
 logsLoc="/var/lib/postgresql/PushNotification/Deactivated91days/logs.tmp"
 # current number
@@ -26,7 +26,7 @@ currentNumLoc="/var/lib/postgresql/PushNotification/Deactivated91days/currentNum
 psql -d $database -t -c "SELECT id FROM svn WHERE current_date - expiry_date::DATE =61" > $queryLoc
 # Deleting the last line from list.txt
 sed '$d' $queryLoc > $fileLoc
-echo "[$now] Sending notifications to mobile numbers, 91 days counter deactivation notice." > $logsLoc
+echo "[$now] Sending notifications to mobile number/s regarding the svn number expiration" > $logsLoc
 
 # This is to read the textfile list.txt line per line
 while IFS='' read -r list;
@@ -50,7 +50,6 @@ do
 # Update the current number of the list
         echo $list > $currentNumLoc
 # Wait for 2 seconds
-        sleep 2s
 		echo "[$now] Successfully sent svn number deactivation notice to $list" >> $logsLoc
 # Run updateQuery.py using python to update svn_id into NULL
         python3 updateQuery91.py

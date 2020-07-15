@@ -16,7 +16,7 @@ actionType='NotificationActivity'
 now=$(date '+%b %d %Y %H:%M:%S')
 body="Your Philippine Mobile Number subscription is about to be deactivated. Subscribe to a new plan now to retain your existing number."
 # Database name
-database="latest_appvno"
+database="appvno_latest"
 # Logs location
 logsLoc="/var/lib/postgresql/PushNotification/Cooling86days/logs.tmp"
 
@@ -45,7 +45,5 @@ do
 # Echo response from curl
         echo "Response: '$response'"
         echo "[$now] Result: '$response'" >> $logsLoc
-# Wait for 2 seconds
-        sleep 2s
 	echo "[$now] Successfully sent last day of cooling period notification to $list" >> $logsLoc
 done < "$fileLoc"

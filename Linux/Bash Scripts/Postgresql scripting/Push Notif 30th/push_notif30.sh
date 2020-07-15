@@ -16,7 +16,7 @@ actionType='NotificationActivity'
 now=$(date '+%b %d %Y %H:%M:%S')
 body="Your Philippine Mobile Number plan will expire today. Please renew now to continue receiving calls and text messages from the Philippines."
 # Database name
-database="latest_appvno"
+database="appvno_latest"
 # Logs location
 logsLoc="/var/lib/postgresql/PushNotification/Expired30days/logs.tmp"
 
@@ -45,7 +45,5 @@ do
 # Echo response from curl
         echo "Response: '$response'"
         echo "[$now] Result: '$response'" >> $logsLoc
-# Wait for 2 seconds
-        sleep 2s
 	echo "[$now] Successfully sent expire notification to $list" >> $logsLoc
 done < "$fileLoc"

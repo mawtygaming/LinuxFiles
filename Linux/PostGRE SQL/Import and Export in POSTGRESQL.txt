@@ -9,4 +9,8 @@ sudo -u postgres pg_restore -d databaseName -C -O sqlFile.sql
 
 pg_dump dbname > outfile
 
+SHOW data_directory;
 
+cat .sql | psql appvno_latest
+
+pg_restore -d appvno_latest -C -O appvno_latest.sql

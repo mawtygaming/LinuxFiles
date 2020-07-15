@@ -18,7 +18,7 @@ now=$(date '+%b %d %Y %H:%M:%S')
 expireDate=$(date --date="3 days" +"%Y-%b-%d")
 body="Your Philippines Mobile Number plan is about to expire on $expireDate. Please renew now to continue receiving calls and text message form Philippines."
 # Database name
-database="latest_appvno"
+database="appvno_latest"
 # Logs location
 logsLoc="/var/lib/postgresql/PushNotification/Notify27days/logs.tmp"
 # current number
@@ -49,10 +49,5 @@ do
 # Echo response from curl
         echo "Response: '$response'"
         echo "[$now] Result: '$response'" >> $logsLoc
-# Update the current number of the list
-        echo $list > $currentNumLoc
-# Wait for 2 seconds
-        sleep 2s
-# Run updateQuery.py using python
-        python3 updateQuery.py
+	echo "[$now] Successfully sent message to $list" >> $logsLoc
 done < "$fileLoc"
