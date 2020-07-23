@@ -14,6 +14,8 @@ Reference: https://linuxconfig.org/ubuntu-20-04-postgresql-installation
 
 https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
 
+# Installing Postgreclient
+https://help.ubuntu.com/community/PostgreSQL
 
 sudo -i -u postgres >> switch to postgres user
 psql >> access postgresql

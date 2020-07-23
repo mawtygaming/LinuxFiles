@@ -1,0 +1,7 @@
+https://docs.docker.com/engine/install/ubuntu/
+https://www.youtube.com/watch?v=aMKUuaga85A
+
+sudo apt  install docker.io
+sudo systemctl status docker
+sudo systemctl enable --now docker
+sudo systemctl disable --now docker

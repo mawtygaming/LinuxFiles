@@ -1,0 +1,49 @@
+lsof
+psql -h host -U user -d database
+
+https://stackoverflow.com/questions/50049463/remote-postgresql-connection-with-pgadmin
+/etc/postgresql/12/main/pg_hba.conf
+https://confluence.atlassian.com/jirakb/error-connecting-to-database-fatal-no-pg_hba-conf-entry-for-host-x-x-x-x-user-jiradbuser-database-jiradb-ssl-off-950801726.html
+
+Check the authentication configuration in pg_hba.conf
+
+Usually located on linux - /etc/postgresql/version/main/pg_hba.conf. You should allow authentication for client for specific IP all from all IP addresses:
+
+# Database administrative login by Unix domain socket
+local     all            postgres        peer
+
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# "local" is for Unix domain socket connections only
+local     all            all             peer
+# IPv4 local connections:
+host     all             all             0.0.0.0/0               md5
+# IPv6 local connections:
+host     all             all             ::0/0                   md5
+#all ips
+host     all             all             all                     md5
+More information how to set up pg_hba.conf you can find in documentation.
+
+Then you should set up listening on specific port.
+
+You have to find the postgresql.conf. Usually located /etc/postgresql/9.1/main/postgresql.conf) file and change the line with listen_address from:
+
+#listen_address = ''
+to (don't forget remove # which means comment):
+
+listen_address = '*'
+After every step you should restart Postgresql service:
+
+sudo service postgresql restart
+After step 2 you should see port 5432 (or 5433) in listening address after netstat command:
+
+netstat -ntlp
+After that you have to open port for PostgreSQL in firewall:
+
+sudo ufw allow 5432
+You can check firewall settings with (you should see 5432 in the list):
+
+sudo ufw status
+If any of the previous step doesn't work you should check if PostgreSQL is not running on different port (usually 5433) and repeat the previous steps.
+
+This happens very often when you have more running versions of PostgreSQL or you upgrade database and forgot stop the previous version of PostgreSQL.

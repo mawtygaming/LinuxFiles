@@ -22,3 +22,5 @@ STEP 3: Debug your network configuration
 
 Reference:
 https://www.ostechnix.com/how-to-configure-ip-address-in-ubuntu-18-04-lts/
+
+https://www.linuxtechi.com/assign-static-ip-address-ubuntu-20-04-lts/

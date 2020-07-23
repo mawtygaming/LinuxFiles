@@ -1,0 +1,6 @@
+VPMS Rufino:
+
+sudo jps -m
+
+pm2 list 
+pm2 restart 1
