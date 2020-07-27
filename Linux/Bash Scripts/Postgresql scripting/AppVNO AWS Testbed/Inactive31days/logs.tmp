@@ -1,0 +1,7 @@
+[Jul 27 2020 14:04:01] Sending notifications to mobile numbers who are about to expire...
+[Jul 27 2020 14:04:01] Successfuly selected data from svn table...
+[Jul 27 2020 14:04:01] Mobile Number: 639952076238
+[Jul 27 2020 14:04:01] Updating 639952076238 status into INCOMING_SMS_ONLY
+[Jul 27 2020 14:04:01] Mobile 639952076238 was successfully updated status into INCOMING_SMS_ONLY.
+[Jul 27 2020 14:04:01] Mobile 639952076238 date_modified was successfully updated.
+[Jul 27 2020 14:04:01] Mobile 639952076238 inserted into svn_transaction table

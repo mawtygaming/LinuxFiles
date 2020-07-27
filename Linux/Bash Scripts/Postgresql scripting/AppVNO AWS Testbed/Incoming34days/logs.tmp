@@ -1,0 +1,8 @@
+[Jul 27 2020 14:21:01] Sending notifications to mobile numbers advising today is the last day of grace period...
+[Jul 27 2020 14:21:01] Successfuly selected data from svn table...
+[Jul 27 2020 14:21:01] Mobile Number: 639952076238
+[Jul 27 2020 14:21:01] Result: '{"multicast_id":3280398482265209738,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1595830862040068%44f8830844f88308"}]}'
+[Jul 27 2020 14:21:01] Updating 639952076238 status into EXPIRED
+[Jul 27 2020 14:21:02] Mobile 639952076238 was successfully updated status into EXPIRED.
+[Jul 27 2020 14:21:02] Mobile 639952076238 date_modified was successfully updated.
+[Jul 27 2020 14:21:02] Mobile 639952076238 inserted into svn_transaction table

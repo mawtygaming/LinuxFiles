@@ -1,5 +1,0 @@
-Compile logs per day
-Count of success request
-Count of success failed
-Count of update success
-Count of update failed

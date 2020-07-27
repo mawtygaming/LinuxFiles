@@ -1,0 +1,10 @@
+[Jul 27 2020 14:59:24] Sending notifications to mobile numbers advising today is the last day of grace period...
+[Jul 27 2020 14:59:24] Successfuly selected data from svn table...
+[Jul 27 2020 14:59:24] Mobile Number: 639952076238
+[Jul 27 2020 14:59:24] Result: '{"multicast_id":698479794253315,"success":1,"failure":0,"canonical_ids":0,"results":[{"message_id":"0:1595833164594656%44f8830844f88308"}]}'
+[Jul 27 2020 14:59:24] Successfully sent svn number deactivation notice to 639952076238
+[Jul 27 2020 14:59:24] Mobile 639952076238 was successfully updated status into UNASSIGNED.
+[Jul 27 2020 14:59:24] Mobile 639952076238 date_modified was successfully updated on svn table.
+[Jul 27 2020 14:59:24] Mobile 639952076238 svn_id successfully updated into NULL.
+[Jul 27 2020 14:59:24] Mobile 639952076238 date_modified was successfully updated on users table.
+[Jul 27 2020 14:59:24] Mobile 639952076238 inserted into svn_transaction table

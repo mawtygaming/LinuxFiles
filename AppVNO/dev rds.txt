@@ -1,0 +1,10 @@
+sysnet-nonprod.ceh6der6dg6x.ap-southeast-1.rds.amazonaws.com
+Username
+postgres
+Password
+uGxEbkJKcPRnzgxHXOJy
+
+
+ok na Maw
+master pw: 4332wurx
+postgres pw:uGxEbkJKcPRnzgxHXOJy
