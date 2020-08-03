@@ -1,7 +1,16 @@
-https://docs.docker.com/engine/install/ubuntu/
-https://www.youtube.com/watch?v=aMKUuaga85A
+LINK: https://docs.docker.com/engine/install/ubuntu/
 
-sudo apt  install docker.io
-sudo systemctl status docker
-sudo systemctl enable --now docker
-sudo systemctl disable --now docker
+Step 1: Uninstall any version of docker if one exist.
+	sudo apt-get remove docker docker-engine docker.io containerd runc
+Uninstall all images because it will not automatically removed
+	sudo rm -rf /var/lib/docker
+Step 2: Install docker using the convenient script.
+	curl -fsSL https://get.docker.com -o get-docker.sh
+	sudo sh get-docker.sh
+Step 3: Check docker version.
+	sudo docker version
+Step 4: Use docker even not root access
+	sudo usermod -aG docker your-user
+Step 5: Enable/Disable docker
+	sudo systemctl enable docker
+	sudo systemctl disable docker

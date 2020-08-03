@@ -1,0 +1,36 @@
+* docker run
+	- used to run a container from an image
+* docker ps 
+	- list all running containers
+	- docker ps -a, list all running and not running docker containers
+* docker start/stop docker-id/docker-name
+	- to start/stop a running docker container
+* docker rm docker-id/docker-name
+	- to remove a docker container
+* docker images 
+	- list all available docker images
+	- docker rmi image-name, to remove a specific image
+* docker pull images
+	- this is to only pull the image and store it on our host
+* docekr exec image-name
+
+* docker run --name image-name nginx:1.14-alpine
+	- run a docker image and name it 
+	- example:
+		docker run --name webapp nginx:1.14-alpine
+* docker run -p docker-host:port-number image-name
+* docker run -p docker-host:port-number/udp image-name
+* docker run -p docker-host:port-number/tcp image-name
+	- run an instance with blue tag and map port on the container to the host
+	- example:
+		docker run -p 38282:8080 kodekloud/simple-webapp:blue
+	- Reference link: https://docs.docker.com/config/containers/container-networking/
+* docker run -p docker-host:port-number --name docker-name -e APP_COLOR=blue -d image-name
+	-Example:Run a container named blue-app using image kodekloud/simple-webapp and 
+	set the environment variable APP_COLOR to blue. Make the application available on 
+	port 38282 on the host. The application listens on port 8080.
+		* docker run -p 38282:8080 --name blue-app -e APP_COLOR=blue -d kodekloud/simple-webapp
+* docker run -d -e MYSQL_ROOT_PASSWORD=db_pass123 --name mysql-db mysql
+	- run a mysql container
+* docker inspect container-name
+	- to inspect the properties of a running command 
