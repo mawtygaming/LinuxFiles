@@ -1,0 +1,30 @@
+* Create a source file 
+	Example: Dockerfile
+		FROM Ubuntu
+		RUN apt-get update
+		RUN apt-get install python
+		RUN pip install flask
+		RUN pip install flask-mysql
+		COPY . /opt/souce-code
+		ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run
+	Everything on the left are instruction
+		- FROM
+		- RUN
+		- COPY
+		- ENTRYPOINT
+	Everything after are arguments
+* docker build yourfile -t 
+* docker push 
+
+* docker build -t webapp-color .
+	- You must be inside the directory
+* docker run -p host-port:container-port image-name
+	- Run an instance of the image and publish container port and host port
+	Example:
+		docker run -p 8282:8080 webapp-color
+* docker run python:3.6 cat /etc/*release*
+	- check the based OS of an image
+NOTE:
+* ALPINE MEANS LESSER SIZE IN MB
+* WHEN BUILDING AN ALPINE IMAGE ALWAYS SPECIFY IT WITH LITE
+* YOU CAN ALWAYS USE SAME CONTAINER PORT BUT NEVER THE SAME HOST PORT

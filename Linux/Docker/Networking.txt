@@ -1,0 +1,49 @@
+* docker run ubuntu (bridge)
+* docker run Ubuntu --network=none (null)
+	Example:
+		docker run --name container-name --network=none image-name
+		docker run --name alpine-2 --network=none alpine
+* docker run Ubuntu --network=host (host)
+
+* docker network ls
+	- to check all network
+* docker inspect container-name
+	- to check the ip address of the current container
+
+* docker network inspect network-name.
+
+* docker network create --driver bridge --subnet 0.0.0.0/0 name
+	example: docker network create -- driver bridge subnet 172.16.9.0/24 custom-isolated-network
+
+* docker network create --driver bridge --subnet 0.0.0.1/0 --gateway 0.0.0.1/0 network-name
+	- Create a specific docker network
+		Example:
+			docker network create --driver bridge --subnet 182.18.0.1/24 --gateway 182.18.0.1 wp-mysql-network
+
+* docker run -d -e MYSQL_ROOT_PASSWORD=db_pass123 --name container-name --network network-name image-name
+	- Running docker with network configuration
+		Example:
+			docker run -d -e MYSQL_ROOT_PASSWORD=db_pass123 --name mysql-db --network wp-mysql-network mysql:5.6
+
+
+* docker network connect	
+	- Connect a container to a network
+* docker network create	
+	- Create a network
+* docker network disconnect	
+	- Disconnect a container from a network
+* docker network inspect	
+	- Display detailed information on one or more networks
+* docker network ls	
+	- List networks
+* docker network prune	
+	- Remove all unused networks
+* docker network rm	
+	- Remove one or more networks
+
+NOTE:
+PLEASE BE ADVISE THAT DOCKER CAN COMMUNICATE USING THE CONTAINER NAME
+	example: 
+		Web service connect to mysql
+		use the docker mysql container name
+	EVEN IF THE CONTAINER CHANGES IP ADDRESS IT WON'T AFFECT THE CONFIGURATION
