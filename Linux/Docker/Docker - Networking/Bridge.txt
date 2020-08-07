@@ -1,0 +1,24 @@
+* apt install bridge-utils
+	- Install docker bridge utilities
+* docker network inspect network-name
+	- This is to check the subnet assigned to a docker virtual switch
+	- Containers category will list all connected containers to the current virtual switch
+* brctl show
+	- Show current bridge available
+* docker network create --driver bridge --subnet 0.0.0.1/0 --gateway 0.0.0.1 network-name
+	- Create a specific docker network
+	- docker network create --driver bridge network-name (automatically generates subnet)
+		Example:
+			docker network create --driver bridge --subnet 182.18.0.1/24 \
+			--gateway 182.18.0.1 wp-mysql-network
+* docker network create --driver=bridge -o "com.docker.network.bridge.name=bridge-name" network-name
+	-o = option
+	- it will rename the bridge you created to your vSwitch network interface (use ifconfig)
+
+
+Note:
+	- Default bridge network named "bridge" cannot ping container name instead you need
+	create a custom bridge network
+
+Reference:
+	- https://www.youtube.com/watch?v=MGBAXJnoqbA

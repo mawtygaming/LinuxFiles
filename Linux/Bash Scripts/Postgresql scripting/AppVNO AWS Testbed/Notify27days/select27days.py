@@ -22,10 +22,10 @@ except:
         sys.stdout = unable_stdout
         unable.close()
 
-# SELECT all ids from svn table counter 27 days.
+# SELECT all mobile numbers from users table left join with svn table svn number - counter 27 days.
 try:
 	cur = conn.cursor()
-	cur.execute("SELECT id FROM svn WHERE expiry_date::DATE - current_date = 3")
+	cur.execute("SELECT a.mobile_number FROM users a LEFT JOIN svn b ON a.svn_id = b.id WHERE expiry_date::DATE - current_date = 3")
 # Print results to list.tmp
 	result = cur.fetchall()
 	list_stdout = sys.stdout
@@ -39,7 +39,7 @@ try:
 	query_stdout = sys.stdout
 	query = open("logs.tmp", "a")
 	sys.stdout = query
-	print("[{0}] Successfuly selected data from svn table...".format(currentTime))
+	print("[{0}] Successfuly selected mobile numbers from users table using svn number...".format(currentTime))
 	sys.stdout = query_stdout
 	query.close()
 except:
@@ -47,7 +47,7 @@ except:
 	failed_stdout = sys.stdout
 	failed = open("logs.tmp", "a")
 	sys.stdout = failed
-	print("[{0}] Failed to select date from svn table.".format(currentTime))
+	print("[{0}] Failed to select data.".format(currentTime))
 	sys.stdout = failed_stdout
 	failed.close()
 # This is to overwrite list.tmp with no text inserted. To make sure no mobile numbers will be curl again.

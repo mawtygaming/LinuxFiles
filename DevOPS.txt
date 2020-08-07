@@ -1,0 +1,10 @@
+REST
+SOAP
+Jenkins
+
+Node JS
+
+AUTOMATED CONFIGURATION:
+Ansible
+Puppet
+Chef

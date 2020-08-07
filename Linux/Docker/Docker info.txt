@@ -7,6 +7,9 @@
 	- to start/stop a running docker container
 * docker rm docker-id/docker-name
 	- to remove a docker container
+	- docker rm -f will delete a container even if it is up and running
+* docker rm -f $(docker ps -aq)
+	- This will remove all containers		
 * docker images 
 	- list all available docker images
 	- docker rmi image-name, to remove a specific image

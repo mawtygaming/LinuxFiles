@@ -26,7 +26,7 @@ cur = conn.cursor()
 try:
 	list=open("currentNum.tmp", "r")
 	mobile=list.readline().strip()
-	cur.execute("UPDATE svn SET status='EXPIRED' WHERE id='{0}'".format(mobile))
+	cur.execute("UPDATE svn SET status='EXPIRED' FROM users WHERE users.mobile_number = '{0}' AND svn.id = users.svn_id".format(mobile))
 	conn.commit();
 # Logs
 	success_stdout = sys.stdout
@@ -49,7 +49,7 @@ except:
 try:
 	list=open("currentNum.tmp", "r")
 	mobile=list.readline().strip()
-	cur.execute("UPDATE svn SET date_modified=NOW() WHERE id='{0}'".format(mobile))
+	cur.execute("UPDATE svn SET date_modified=NOW() FROM users WHERE users.mobile_number = '{0}' AND svn.id = users.svn_id".format(mobile))
 	conn.commit();
 # Logs
 	svnupdate_stdout = sys.stdout
@@ -72,7 +72,7 @@ except:
 try:
 	list=open("currentNum.tmp", "r")
 	mobile=list.readline().strip()
-	cur.execute("INSERT INTO svn_transactions(mobile_number, svn_id, svn_status, date_subscribed, expiry_date, date_created,record_status) SELECT b.mobile_number, b.svn_id, a.status, a.date_subscribed, a.expiry_date, NOW(),'ACTIVE' FROM svn a, users b WHERE a.id='{0}' and b.mobile_number='{0}'".format(mobile))
+	cur.execute("INSERT INTO svn_transactions(mobile_number, svn_id, svn_status, date_subscribed, expiry_date, date_created,record_status) SELECT b.mobile_number, b.svn_id, a.status, a.date_subscribed, a.expiry_date, NOW(),'ACTIVE' FROM svn a, users b WHERE b.mobile_number='{0}'".format(mobile))
 	conn.commit();
 # Logs
 	transacupdate_stdout = sys.stdout
