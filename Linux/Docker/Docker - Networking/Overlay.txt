@@ -1,0 +1,58 @@
+STEP 1:
+* On Docker host 1 
+	- docker swarm init
+		Get the token
+	
+	- docker swarm join-token worker
+		This is the join token
+
+	- docker swarm join-token manager
+		This is the token manager 
+		
+* docker swarm leave --force
+
+STEP 2:
+* On Docker host 1
+	- docker network create --driver=overlay --attachable network-name
+		--driver = your desired driver which is overlay
+		--attachable = standalone containers to user-defined overlay networks
+		
+STEP 3:
+* One Docker host 1
+	- docker run -it --name container-name1 --network network-name image-name1
+		-it = means interactive
+		--name = for you container name or it will be random
+		--network = overlay network name
+	
+STEP 4:
+* On Docker host 2
+	- docker network ls
+		You can see that the overlay network-name you created on host 1 doesn't exit yet
+		
+STEP 5:
+* On Docker host 2
+	- docker run -dit --name container-name2 --network network-name image-name2
+		-d detached
+		-it interactive
+		network-name = name of the overlay network you've created on host 1
+		
+STEP 6: 
+* On Docker host 2
+	- docker network ls
+		verify the overlay network created on host 1
+		
+STEP 7:
+* On Docker host 1 
+	- docker network inspect network-name
+		network-name = name of the overlay network
+		Check the containers part
+		Check the IP address of container-name1
+* On Docker host 2
+	- ping the ip address
+	or 
+	- ping -c 4 container-name1
+	
+	
+
+Reference:
+https://docs.docker.com/network/network-tutorial-overlay/

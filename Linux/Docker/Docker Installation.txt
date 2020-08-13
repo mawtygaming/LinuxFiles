@@ -11,6 +11,8 @@ Step 3: Check docker version.
 	sudo docker version
 Step 4: Use docker even not root access
 	sudo usermod -aG docker your-user
+	or 
+	sudo chmod 666 /var/run/docker.sock
 Step 5: Enable/Disable docker
 	sudo systemctl enable docker
 	sudo systemctl disable docker

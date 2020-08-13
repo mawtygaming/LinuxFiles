@@ -1,0 +1,3 @@
+* docker network create -d macvlan --subnet 10.1.0.0/24 --gateway 10.1.0.1 -o parent-eth0 mac_net
+
+* docker run --net=mac_net --ip=10.1.0.2 nginx

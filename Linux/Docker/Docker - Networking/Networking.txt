@@ -29,14 +29,17 @@ Types of network drivers:
 	- overlay
 	- macvlan
 	- none
+	
+* docker run -p docker-host:port-number image-name
 
 * docker run -d -e MYSQL_ROOT_PASSWORD=db_pass123 --name container-name --network network-name image-name
 	- Running docker with network configuration
 		Example:
 			docker run -d -e MYSQL_ROOT_PASSWORD=db_pass123 --name mysql-db --network wp-mysql-network mysql:5.6
 * docker network connect network-name container-name
+	- Connect to a network
 	Example:
-		docker network connect bridge-test ubuntu-nginx
+			docker network connect bridge-test ubuntu-nginx
 
 
 Parent Commands:

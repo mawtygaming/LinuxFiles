@@ -3,12 +3,7 @@ To Do List:
 2. Study SDN
 
 Ansible
-Docker
 Kubernetes
 Jenkins
-Nagios
 AWS
-Cucumber
-Sonarqube
 Chef
-TC

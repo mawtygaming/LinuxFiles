@@ -1,4 +1,4 @@
-* docker run
+* docker run -d -it
 	- used to run a container from an image
 * docker ps 
 	- list all running containers
@@ -15,7 +15,7 @@
 	- docker rmi image-name, to remove a specific image
 * docker pull images
 	- this is to only pull the image and store it on our host
-* docekr exec image-name
+* docker exec image-name
 
 * docker run --name image-name nginx:1.14-alpine
 	- run a docker image and name it 

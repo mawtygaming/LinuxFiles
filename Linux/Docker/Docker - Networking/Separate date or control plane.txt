@@ -1,0 +1,4 @@
+STEP 1:
+	* docker swarm init --advertise-addr eth0 --data-path-addr eth1
+STEP 2:
+	* docker swarm join --token XYZ --advertise-addr eth0 --data-path-addr eth1 10.0.0.1:2377

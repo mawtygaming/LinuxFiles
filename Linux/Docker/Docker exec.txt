@@ -1,1 +1,1 @@
-* docker exec -it container-id/container-name
+* docker exec -it container-id/container-name command
