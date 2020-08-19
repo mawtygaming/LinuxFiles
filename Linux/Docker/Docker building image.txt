@@ -7,11 +7,30 @@
 		RUN pip install flask-mysql
 		COPY . /opt/souce-code
 		ENTRYPOINT FLASK_APP=/opt/source-code/app.py flask run
-	Everything on the left are instruction
-		- FROM
-		- RUN
-		- COPY
-		- ENTRYPOINT
+INSTRUCTIONS:
+		* FROM
+		- install the image
+			Example:
+				FROM ubuntu 
+		* RUN
+		- install libraries or imports
+			Example:
+				RUN npm install -g pm2@latest
+					npm install is from node:12 image
+		* EXPOSE
+		- install to what port
+			Example:
+				EXPOSE 8080
+		* WORKDIR
+		- set your working directory
+			Example:
+				WORKDIR /var/www/appvno
+		* COPY
+		- copy to a specific directory
+			Example:
+				COPY . . 
+					- copy all content of the current dir to WORKDIR
+		* ENTRYPOINT
 	Everything after are arguments
 * docker build yourfile -t 
 * docker push 

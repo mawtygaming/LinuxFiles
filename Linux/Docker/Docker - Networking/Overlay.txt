@@ -11,6 +11,12 @@ STEP 1:
 		
 * docker swarm leave --force
 
+	
+Networking Overlay:
+* docker swarm init
+* docker swarm join --token 
+	- This command will be given after initializing docker swarm
+
 STEP 2:
 * On Docker host 1
 	- docker network create --driver=overlay --attachable network-name
@@ -51,8 +57,7 @@ STEP 7:
 	- ping the ip address
 	or 
 	- ping -c 4 container-name1
-	
-	
+
 
 Reference:
 https://docs.docker.com/network/network-tutorial-overlay/

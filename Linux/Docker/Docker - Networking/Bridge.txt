@@ -1,10 +1,19 @@
+STEP 1:
 * apt install bridge-utils
 	- Install docker bridge utilities
+* brctl show
+	- Show current bridge available
+	- sudo apt install bridge-utils
+
+STEP 2:
+* docker network ls
+	- List all docker available network
+	
 * docker network inspect network-name
 	- This is to check the subnet assigned to a docker virtual switch
 	- Containers category will list all connected containers to the current virtual switch
-* brctl show
-	- Show current bridge available
+
+STEP 3: Creating a bridge network
 * docker network create --driver bridge --subnet 0.0.0.1/0 --gateway 0.0.0.1 network-name
 	- Create a specific docker network
 	- docker network create --driver bridge network-name (automatically generates subnet)
@@ -15,10 +24,30 @@
 	-o = option
 	- it will rename the bridge you created to your vSwitch network interface (use ifconfig)
 
+* docker network create --driver bridge --subnet 0.0.0.1/0 --gateway 0.0.0.1 -o "com.docker.network.bridge.name=bridge-name" network-name
+
+STEP 4: Running the image connecting to a network
+*  docker run --name container_name --network=network_name -it image_name
+	EXAMPLE: 
+		docker run --name Ubuntu1 --network=net1 -it ubuntu
+	
+Please be advise you can use these commands but the container must be stopped first:
+	* docker network connect --ip ip_address_subnet network_name container_name
+		EXAMPLE:
+			docker network connect --ip 192.168.23.2 net2 Ubuntu2
+			
+	* docker network disconnect	
 
 Note:
 	- Default bridge network named "bridge" cannot ping container name instead you need
 	create a custom bridge network
 
+STEP 5: Adding virtual network
+* ip link add virtual_interface link parent_interface type veth
+* ifconfig virtual_interface up
+* brctl addif container_bridge_network_name ip_link_network	
+
+
 Reference:
 	- https://www.youtube.com/watch?v=MGBAXJnoqbA
+	- https://stackoverflow.com/questions/36544443/docker-how-to-connect-two-bridges#:~:text=If%20you%20want%20to%20connect,a%20pair%20of%20patch%20ports.

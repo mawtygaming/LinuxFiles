@@ -1,1 +1,19 @@
+RUNNING A CONTAINER:
 * docker exec -it container-id/container-name command
+
+COMPOSING AN IMAGE:
+* docker-compose up -d <directory to compose>
+	- to start container from a directory
+	- directory must have a Dockerfile to compose the image
+* docker-compose stop <container name>
+	- to stop container
+* docker-compose rm <container name>
+	- to remove container
+* docker image ls
+	- to list all image
+* docker rmi <image name or image id>
+	- to remove image
+	
+tail -f /data/logs/legacymessaging/legacymessaging.tmp
+
+sudo tcpdump -i any -w filename.cap

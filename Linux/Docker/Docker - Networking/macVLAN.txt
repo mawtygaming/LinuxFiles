@@ -1,3 +1,38 @@
-* docker network create -d macvlan --subnet 10.1.0.0/24 --gateway 10.1.0.1 -o parent-eth0 mac_net
+STEP 1:
+* docker network create -d macvlan --subnet=current_host_ip --gateway=host_gateway  -o parent=eth0 network_name
+	--subnet = your docker host ip address
+	--gateway = your docker host gateway address
+	parent = network interface you are connecting
+	network_name = your network_name
+		EXAMPLE:
+			docker network create -d macvlan --subnet=172.16.9.43/24 --gateway=172.16.9.1  -o parent=ens160 mvlan_network
+STEP 2:
+* docker network ls
+	Check your docker network
+STEP 3: 
+* docker run --net=network_name --ip=new_subnet_ip_address -itd alpine /bin/sh
+		EXAMPLE:
+			docker run --net=mvlan_network --ip=172.16.9.45 -itd alpine /bin/sh
+			
+STEP 4: 
+* ip link add virutal_interface_name link parent_int type macvlan mode bridge
+	EXAMPLE:
+		ip link add dockermvlan0 link ens160 type macvlan mode bridge
+		
+* ip addr add new_subnet_ip_address dev virutal_interface_name
+	EXAMPLE:
+		ip addr add 172.16.9.45/24 dev dockermvlan0
 
-* docker run --net=mac_net --ip=10.1.0.2 nginx
+* ifconfig virutal_interface_name up
+	This is to up the virtual interface
+	
+* ip link delete interface
+
+Important Point: 
+When using macvlan, you cannot ping or communicate with the default namespace IP address. 
+For example, if you create a container and try to ping the Docker host’s eth0, it will not work. 
+That traffic is explicitly filtered by the kernel modules themselves to offer additional provider isolation 
+and security.
+
+Reference:
+https://collabnix.com/2-minutes-to-docker-macvlan-networking-a-beginners-guide/

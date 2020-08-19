@@ -13,16 +13,6 @@
 * docker network inspect network-name.
 	- This is to inspect the ip address of the specific docker network
 
-* docker network create --driver overlay --subnet 0.0.0.0/0 name
-	example: docker network create --driver overlay subnet 172.16.9.0/24 custom-isolated-network
-
-* docker network create --driver bridge --subnet 0.0.0.1/0 --gateway 0.0.0.1 network-name
-	- Create a specific docker network
-		Example:
-			docker network create --driver bridge --subnet 182.18.0.1/24 --gateway 182.18.0.1 wp-mysql-network
-* apt install bridge-utils
-	- This is to install 
-
 Types of network drivers:
 	- bridge
 	- host
@@ -58,12 +48,6 @@ Parent Commands:
 	- Remove all unused networks
 * docker network rm	
 	- Remove one or more networks
-
-
-Networking Overlay:
-* docker swarm init
-* docker swarm join --token 
-	- This command will be given after initializing docker swarm
 
 NOTE:
 PLEASE BE ADVISE THAT DOCKER CAN COMMUNICATE USING THE CONTAINER NAME
