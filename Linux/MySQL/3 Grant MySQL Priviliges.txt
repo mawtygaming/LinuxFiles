@@ -26,9 +26,24 @@ Granting all privileges to a specific database:
 	databaseName = database name
 	tableName = table name, eg. report_macs or * (all)
 	user = username
-	location
+	location = either localhost or %
 
 Granting all privileges on all database:
 - GRANT ALL PRIVILEGES ON *.* TO 'user'@'location';
 	user = username
 	location = place, eg. localhost or % (any host);
+
+
+CREATE USER:
+
+User on localhost:
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'user_password';
+
+User on a specific host:
+CREATE USER 'newuser'@'10.8.0.5' IDENTIFIED BY 'user_password';
+
+User on all possible host:
+CREATE USER 'newuser'@'%' IDENTIFIED BY 'user_password';
+
+CHANGE USER PASSWORD:
+ALTER USER 'userName'@'localhost' IDENTIFIED BY 'New-Password-Here
