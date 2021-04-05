@@ -25,7 +25,7 @@ except:
 # SELECT all mobile number from users table using svn number - counter 31 days.
 try:
         cur = conn.cursor()
-        cur.execute("SELECT a.mobile_number FROM users a LEFT JOIN svn b ON a.svn_id = b.id WHERE current_date - expiry_date::DATE = 1")
+        cur.execute("SELECT a.mobile_number FROM users a LEFT JOIN svn b ON a.svn_id = b.id WHERE CURRENT_DATE - b.expiry_date::DATE = 1;")
 # Print results to list.tmp
         result = cur.fetchall()
         list_stdout = sys.stdout

@@ -1,0 +1,17 @@
+sudo apt-get update
+sudo apt-get install certbot
+sudo apt-get install --only-upgrade certbot
+
+certbot --version
+certbot -auto renew
+sudo certbot renew
+certbot certificates
+certbot renew --cert-name domain1.com
+
+Renewing Certbot:
+1. Down nginx
+2. restart tomcat
+3. update certbot
+4. Up nginx
+
+Since certbot renew and nginx uses the same port 80

@@ -1,0 +1,13 @@
+1. Jenkins
+2. Ansible
+3. Nagios/splunk
+4. Puppet Enterprise
+5. Bamboo
+6. Chef
+7. Full Stack Web Development with Flask
+
+* Review Docker and Kubernetes
+* Review Git/Bitbucket
+
+Slack?
+Vagrant?

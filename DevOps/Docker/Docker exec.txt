@@ -13,7 +13,7 @@ COMPOSING AN IMAGE:
 	- to list all image
 * docker rmi <image name or image id>
 	- to remove image
-	
-tail -f /data/logs/legacymessaging/legacymessaging.tmp
-
-sudo tcpdump -i any -w filename.cap
+* docker-compose up -d 
+	- this is to run the docker-compose.yml
+* docker stop $(docker ps -a -q)
+	- This is to stop all running container

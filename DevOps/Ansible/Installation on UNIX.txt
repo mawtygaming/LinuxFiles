@@ -1,0 +1,40 @@
+sudo apt update
+sudo apt install software-properties-common
+sudo apt-add-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+sudo apt install sshpass
+
+-m = module
+-a = ad hoc
+
+CONTROL MACHINEL:
+1. Install Ansible
+2. Write the Inventory 
+3. Write playbook
+4. Deploy the playbook 
+
+CHECK ANSIBLE VERSION:
+* ansible --version
+
+CHECK ANSIBLE PLAYBOOK CODE
+* ansible-playbook *.yml --syntax-check
+
+MODULE:
+1. Name
+2. Host
+3. Task
+4. Linux Distro command (apt, yum etc.)
+
+INVENTORY:
+Edit /etc/ansible/hosts
+	[server name/router name]
+	ip address(x.x.x.x) ansible_ssh_user=username ansible_ssh_pass=password
+	
+TEST PING:
+	ansible [server/s name] -m ping
+	or
+	ansible all -m ping
+
+Reference:
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-ubuntu

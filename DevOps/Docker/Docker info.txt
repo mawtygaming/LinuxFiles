@@ -1,5 +1,7 @@
 * docker run -d -it
 	- used to run a container from an image
+	- example:
+		docker run -d -it --name wp-testing wordpress:5.5
 * docker ps 
 	- list all running containers
 	- docker ps -a, list all running and not running docker containers

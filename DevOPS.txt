@@ -1,10 +1,90 @@
-REST
-SOAP
-Jenkins
-
-Node JS
-
-AUTOMATED CONFIGURATION:
-Ansible
-Puppet
-Chef
+Introduction
+Why do we need DevOps?
+Introduction to DevOps
+Companies Using DevOps
+DevOps Lifecycle
+DevOps Tools
+DevOps Automation
+Azure and AWS DevOps
+Top 10 DevOps Skills to Learn
+DevOps Learning Path
+What is Version Control
+What is Git
+Git Intsalltion & Setup
+Git Operations & Commands
+The need for GitHub
+What is GitHub?
+How to use GitHub
+Create a Repository
+Create a Branch
+Make a commit
+Open and merge Pull request
+GitHub case study
+Why Continuous Integration?
+What is  Continuous Integration?
+​What is Jenkins?
+Jenkins Installation, Setup and Demo
+Why do we need Docker?
+How Docker solves the problem?
+What is Docker?
+Advantages of Docker
+Docker Architecture
+Docker Installation and Commands
+Docker Compose
+Docker Volume
+Docker Swarm
+Docker Swarm Vs Kubernetes
+Need for Kubernetes
+What is Kubernetes and What it's not
+Introduction to Containers
+Kubernetes vs Docker Swarm
+How does Kubernetes work?
+Use-Case: Kubernetes @ Pokemon Go
+Configuration Management
+What is Puppet?  
+Why Puppet?
+Puppet Hands-on 
+What is Ansible?
+Configuration Management
+Push Based vs Pull Based
+How to Install Ansible
+Host Inventory
+Ansible Modules
+Understanding YAML
+Ansible Playbook
+Hands-on
+Introduction
+Why Terraform?
+What is Terraform?
+Terraform Use Case
+Terraform Lifecycle
+How does Terraform Work?
+Terraform Installation and Demo
+Introduction
+Continuous Monitoring in DevOps
+Introduction to Grafana
+Getting Started with Grafana
+What is Prometheus?
+Why Prometheus?
+Continuous Monitoring with Prometheus
+Prometheus Architecture
+Prometheus Metrics and its Metrics
+Prometheus Installation and Demo"
+History
+What is Selenium
+Features of Selenium
+Components or Suite
+Demo
+Introduction to AWS
+​What is a CICD Pipeline?
+AWS DevOps Components
+Building a CICD Pipeline on AWS
+What is Azure?
+What is DevOps
+DevOps Azure Components
+Demo: Building digital pipeline on Cloud
+Basic DevOps Interview Questions
+Source Code Management Interview Questions
+Continuous Integration Interview Questions
+Continuous Deployment Interview Questions
+Continuous Monitoring Interview Questions

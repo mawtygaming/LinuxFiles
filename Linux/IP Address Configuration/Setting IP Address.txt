@@ -12,11 +12,11 @@ STEP 2:
 			[network int]:
 				addresses: [122.2.53.36/29]
 				gateway4: 122.2.53.33
-				# Sometimes when configuring static IP address no need to into dhcp4
+				# Sometimes when configuring static IP address no need to into add dhcp4
 				dhcp4: no
 				# Please take note to use your DNS IP Address
 				nameservers:
-					[8.8.8.8, 8.8.4.4]
+					addresses: [8.8.8.8, 8.8.4.4]
 STEP 3: Debug your network configuration
 	sudo netplan --debug apply
 

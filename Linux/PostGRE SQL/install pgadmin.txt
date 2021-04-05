@@ -1,3 +1,0 @@
-https://websiteforstudents.com/install-postgresql-with-pgadmin-on-ubuntu-20-04-18-04/
-
-http://172.16.9.113/pgadmin4/browser/
