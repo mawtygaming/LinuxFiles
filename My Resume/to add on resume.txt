@@ -1,4 +1,0 @@
-Python REST API using Python Django or Flask
-Docker Compose and Swarm
-
-https://intellipaat.com/community/122/execute-curl-command-within-a-python-script

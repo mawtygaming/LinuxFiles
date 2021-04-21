@@ -1,14 +1,13 @@
-git init
+git init # STEP 1 
 
-git remote -v
+git remote -v # # STEP 2
 # this is to check your repository
 
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 git config --list
 
-git remote -v
-git remote add origin (link)
+git remote add origin (link) # STEP 3
 git remote remove origin
 # This will remove all origin
 git config --get remote.origin.url
@@ -37,10 +36,19 @@ git reset --hard HEAD~1
 reference: https://stackoverflow.com/questions/1338728/delete-commits-from-a-branch-in-git
 
 git push -u origin master
-
-git branch
-git branch -d (branch name)
-# delete branch remotely
 git push origin --delete (remoteBranchName)
+
+BRANCH:
+git branch (branch name) # create branch remotely
+git branch -d (branch name) # delete branch remotely
+git branch --list # list all available branch
+git checkout (branch name) # change branch
+git checkout -b (branch name) # create and switch directly to the new branch
+git push --set-upstream origin (branch name)
+
+ADDING GIT within the branch:
+git add.
+git status
+git commit -m "Comment" pushed to (branch name)
 
 
