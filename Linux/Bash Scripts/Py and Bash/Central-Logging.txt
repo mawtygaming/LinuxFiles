@@ -21,16 +21,16 @@ do
 	echo $line | egrep -i "refused|invalid|error|fail|lost|shut|down|offline"
 
 
-        if [ $? = 0 ]
+Â  Â  Â  Â  if [ $? = 0 ]
 
 
-        then
+Â  Â  Â  Â  then
 
 
-        echo $line >> /tmp/filtered-messages
+Â  Â  Â  Â  echo $line >> /tmp/filtered-messages
 
 
-        fi
+Â  Â  Â  Â  fi
 
 
 done
@@ -57,8 +57,10 @@ nohup /root/logtail &&
 
 
 Notification:
-
-vi 
+
+
+
+vi 
 
 /root/Log-Alert
 
@@ -75,19 +77,19 @@ systems="imran_ny@hotmail.com,charles.gorden@email.com"
 if [ -s /tmp/filtered-messages ]
 
 
-        then
+Â  Â  Â  Â  then
 
 
-        cat /tmp/filtered-messages | sort | uniq | mail -s "CHECK: Syslog Errors" $systems
+Â  Â  Â  Â  cat /tmp/filtered-messages | sort | uniq | mail -s "CHECK: Syslog Errors" $systems
 
 
-        rm /tmp/filtered-messages
+Â  Â  Â  Â  rm /tmp/filtered-messages
 
 
-        else
+Â  Â  Â  Â  else
 
 
-        fi
+Â  Â  Â  Â  fi
 
 
 
