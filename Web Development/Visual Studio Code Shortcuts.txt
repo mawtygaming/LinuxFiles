@@ -1,4 +1,0 @@
-* ! then Press ENTER = complete html doctype
-* Shift + Alt + F = Prettier Formatter
-* Ctrl + / = Comment on CSS
-* lorem
