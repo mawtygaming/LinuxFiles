@@ -1,9 +1,0 @@
-To Do List:
-1. Study Docker
-2. Study SDN
-
-Ansible
-Kubernetes
-Jenkins
-AWS
-Chef
